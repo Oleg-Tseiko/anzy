@@ -153,14 +153,16 @@ class GbookForm extends FormBase {
       $file = File::load($form_state->getValue('image')[0]);
       $file->setPermanent();
       $file->save();
-    } else {
+    }
+    else {
       $form_state->getValue('image')[0] = 0;
     }
     if (!$form_state->getValue('avatar')[0] == NULL) {
       $ava = File::load($form_state->getValue('avatar')[0]);
       $ava->setPermanent();
       $ava->save();
-    } else {
+    }
+    else {
       $form_state->getValue('avatar')[0] = 0;
     }
     $times = time() + 3 * 60 * 60;

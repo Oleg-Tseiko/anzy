@@ -6,7 +6,6 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Drupal\file\Entity\File;
-use Drupal\image\Entity\ImageStyle;
 
 /**
  * Contains \Drupal\anzy\Form\GbookAdminForm.
@@ -95,7 +94,8 @@ class AnzyAdminForm extends FormBase {
         $ava = [
           '#markup' => '<img src="/modules/custom/anzy/img/default-user-avatar-300x293.png"/>',
         ];
-      } else {
+      }
+      else {
         $ava = [
           '#type' => 'image',
           '#theme' => 'image_style',

@@ -199,12 +199,22 @@ class GbookChangeForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $connection = \Drupal::service('database');
-    $file = File::load($form_state->getValue('image')[0]);
-    $file->setPermanent();
-    $file->save();
-    $ava = File::load($form_state->getValue('avatar')[0]);
-    $ava->setPermanent();
-    $ava->save();
+    if (!$form_state->getValue('image')[0] == NULL) {
+      $file = File::load($form_state->getValue('image')[0]);
+      $file->setPermanent();
+      $file->save();
+    }
+    else {
+      $form_state->getValue('image')[0] = 0;
+    }
+    if (!$form_state->getValue('avatar')[0] == NULL) {
+      $ava = File::load($form_state->getValue('avatar')[0]);
+      $ava->setPermanent();
+      $ava->save();
+    }
+    else {
+      $form_state->getValue('avatar')[0] = 0;
+    }
     $result = $connection->update('anzy')
       ->condition('id', $this->ctid)
       ->fields([
