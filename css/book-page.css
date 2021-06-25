@@ -8,7 +8,7 @@
   background-color: #ff4444;
 }
 .gbook-form input {
-  padding: 1.5625rem 0.625rem;
+  padding: 5px;
   border-radius: 0;
 }
 .gbook-form .form-file {
@@ -70,6 +70,7 @@
   margin: 10px;
   height: auto;
   width: 80%;
+  max-width: 200px;
 }
 .deleteGbook {
   background-color: #ff3232;

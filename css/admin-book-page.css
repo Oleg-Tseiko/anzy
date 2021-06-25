@@ -2,3 +2,7 @@ td {
   max-width: 400px;
   overflow: hidden;
 }
+td img {
+  max-width: 100px;
+  height: auto;
+}
