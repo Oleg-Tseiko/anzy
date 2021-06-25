@@ -161,7 +161,7 @@ class GbookForm extends FormBase {
       $ava->setPermanent();
       $ava->save();
     } else {
-      $form_state->getValue('avatar')[0] = 66;
+      $form_state->getValue('avatar')[0] = 0;
     }
     $times = time() + 3 * 60 * 60;
     $result = $connection->insert('anzy')

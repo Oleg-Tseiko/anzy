@@ -6,6 +6,7 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Drupal\file\Entity\File;
+use Drupal\image\Entity\ImageStyle;
 
 /**
  * Contains \Drupal\anzy\Form\GbookAdminForm.
@@ -90,12 +91,18 @@ class AnzyAdminForm extends FormBase {
         '#style_name' => 'thumbnail',
         '#uri' => !empty($file) ? $file->getFileUri() : '',
       ];
-      $ava = [
-        '#type' => 'image',
-        '#theme' => 'image_style',
-        '#style_name' => 'thumbnail',
-        '#uri' => $avafile->getFileUri(),
-      ];
+      if (empty($avafile)) {
+        $ava = [
+          '#markup' => '<img src="/modules/custom/anzy/img/default-user-avatar-300x293.png"/>',
+        ];
+      } else {
+        $ava = [
+          '#type' => 'image',
+          '#theme' => 'image_style',
+          '#style_name' => 'thumbnail',
+          '#uri' => $avafile->getFileUri() ,
+        ];
+      }
       /*
        * Setting deletion and edit button property,
        * render them manually so they could appear in tableselect.

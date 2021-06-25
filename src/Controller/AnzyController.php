@@ -65,7 +65,7 @@ class AnzyController extends ControllerBase {
       $value['image'] = !empty($file) ? file_url_transform_relative(file_create_url($file->getFileUri())) : '';
       $avafid = $value['avatar'];
       $avafile = File::load($avafid);
-      $value['avatar'] = file_url_transform_relative(file_create_url($avafile->getFileUri()));
+      $value['avatar'] = !empty($avafile) ? file_url_transform_relative(file_create_url($avafile->getFileUri())) : '';
       array_push($rows, $value);
     }
     $form['#attached']['library'][] = 'anzy/my-lib';

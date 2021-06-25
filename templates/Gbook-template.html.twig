@@ -6,7 +6,11 @@
     <div class="col-md-6">
       <div class="row">
         <div class="col-sm-6">
+          {% if item.avatar %}
           <a href="{{ item.avatar }}" target="_blank" class="avatar-book"><img src="{{ item.avatar }}" alt="user profile image"></a></div>
+          {% else %}
+        <a href="/modules/custom/anzy/img/default-user-avatar-300x293.png" target="_blank" class="avatar-book"><img src="/modules/custom/anzy/img/default-user-avatar-300x293.png" alt="user profile image"></a></div>
+          {% endif %}
         <div class="col-sm-6">
           <p>{{ item.name }}</p>
           <p><span>{{ 'Submitted:'|trans }} </span>{{ item.created }}</p>
