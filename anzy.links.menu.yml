@@ -1,0 +1,6 @@
+anzy.admin_settings:
+  title: 'Guests book'
+  description: 'Delete or edit submitted comments'
+  parent: system.admin_structure
+  route_name: anzy.admin_page
+  weight: 10

@@ -1,0 +1,62 @@
+<?php
+function anzy_schema() {
+  $schema['anzy'] = [
+    'description' => 'stores email, name, image, avatar and phone for comment',
+    'fields' => [
+      'id' => [
+        'description' => 'The primary identifier for db entry.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'name' => [
+        'description' => "User\'s name.",
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => FALSE,
+        'default' => '',
+      ],
+      'comment' => [
+        'description' => "User\'s comment.",
+        'type' => 'text',
+        'length' => 864,
+        'not null' => FALSE,
+      ],
+      'phone' => [
+        'description' => "User\'s phone number.",
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => FALSE,
+        'default' => '',
+      ],
+      'mail' => [
+        'description' => "User\'s email address.",
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => FALSE,
+        'default' => '',
+      ],
+      'image' => [
+        'description' => "User\'s comment image.",
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'avatar' => [
+        'description' => "User\'s profile picture.",
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'created' => [
+        'description' => 'Timestamp when review was submitted.',
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => FALSE,
+        'default' => '',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+  return $schema;
+}

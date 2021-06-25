@@ -1,0 +1,34 @@
+<h4>{{ 'Hello! You can add here your review.'|trans }}</h4>
+{{ form }}
+<h4>{{ 'You can see list of all reviews here.'|trans }}</h4>
+{% for item in items %}
+  <div class="row underline_gbook">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-sm-6">
+          <a href="{{ item.avatar }}" target="_blank" class="avatar-book"><img src="{{ item.avatar }}" alt="user profile image"></a></div>
+        <div class="col-sm-6">
+          <p>{{ item.name }}</p>
+          <p><span>{{ 'Submitted:'|trans }} </span>{{ item.created }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <p><span>{{ 'Contact:'|trans }}</span></p>
+      <p>{{ item.mail }}</p>
+      <p>{{ item.phone }}</p>
+    </div>
+    <div class="col-md-6">
+      {% if item.image  %}
+      <div class="image-container"><a href="{{ item.image }}" target="_blank"><img src="{{ item.image }}" alt="user image"></a></div>
+      {% endif %}
+    </div>
+    <div class="col-md-6">
+      <p>{{ item.comment }}</p>
+      {% if user.hasPermission('administer nodes') %}
+        <a href="/admin/anzy/gbookDel/{{ item.id }}/10" class="deleteGbook use-ajax" data-dialog-type="modal">{{ 'Delete'|trans }}</a>
+        <a href="/admin/anzy/gbookChange/{{ item.id }}/10" class="deleteGbook">{{ 'Edit'|trans }}</a>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}

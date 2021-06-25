@@ -1,0 +1,29 @@
+anzy.gbook_page:
+  path: '/anzy/gbook'
+  defaults:
+    _controller: '\Drupal\anzy\Controller\AnzyController::report'
+  requirements:
+    _permission: 'access content'
+
+anzy.admin_page:
+  path: '/admin/structure/gbook-comments'
+  defaults:
+    _form: '\Drupal\anzy\Form\AnzyAdminForm'
+  requirements:
+    _permission: 'administer nodes'
+
+anzy.gbook_delete_page:
+  path: '/admin/anzy/gbookDel/{cid}/{rpath}'
+  defaults:
+    _form: '\Drupal\anzy\Form\GbookDeleteForm'
+    _title: 'Sure that you want to delete this comment?'
+  requirements:
+    _permission: 'administer nodes'
+
+anzy.gbook_edit_page:
+  path: '/admin/anzy/gbookChange/{cid}/{rpath}'
+  defaults:
+    _form: '\Drupal\anzy\Form\GbookChangeForm'
+    _title: 'You can edit comment here.'
+  requirements:
+    _permission: 'administer nodes'

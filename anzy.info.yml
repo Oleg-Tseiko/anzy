@@ -1,0 +1,4 @@
+name: Anzy
+type: module
+core_version_requirement: ^8.8 || ^9
+description: 'This module creates a page with a list guests comments and a form where users can leave their opinions.'
