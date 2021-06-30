@@ -5,4 +5,4 @@ If you want to install this module on other drupal enviroment, make sure that su
     - core/drupal.dialog.ajax
     - core/jquery.form
     as dependencies for theme libraries.yml so delete button would work as intended.
-
+It recommended to install php version 7.4 and clear cache when module installed or it could result in error.
