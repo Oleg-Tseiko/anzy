@@ -30,8 +30,8 @@
     <div class="col-md-6">
       <p>{{ item.comment }}</p>
       {% if user.hasPermission('administer nodes') %}
-        <a href="/admin/anzy/gbookDel/{{ item.id }}/10" class="deleteGbook use-ajax" data-dialog-type="modal">{{ 'Delete'|trans }}</a>
-        <a href="/admin/anzy/gbookChange/{{ item.id }}/10" class="deleteGbook">{{ 'Edit'|trans }}</a>
+        <a href="/admin/anzy/gbookDel/{{ item.id }}" class="deleteGbook use-ajax" data-dialog-type="modal">{{ 'Delete'|trans }}</a>
+        <a href="/admin/anzy/gbookChange/{{ item.id }}" class="deleteGbook">{{ 'Edit'|trans }}</a>
       {% endif %}
     </div>
   </div>

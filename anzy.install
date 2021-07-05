@@ -1,4 +1,13 @@
 <?php
+
+/**
+ * @file
+ * Installing db table with name, id, comment, avatar, image and mail.
+ */
+
+/**
+ * Schema function for field creation.
+ */
 function anzy_schema() {
   $schema['anzy'] = [
     'description' => 'stores email, name, image, avatar and phone for comment',

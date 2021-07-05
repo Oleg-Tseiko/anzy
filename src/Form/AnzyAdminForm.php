@@ -109,7 +109,7 @@ class AnzyAdminForm extends FormBase {
        */
       $delete = [
         '#type' => 'link',
-        '#url' => Url::fromUserInput("/admin/anzy/gbookDel/$id/20"),
+        '#url' => Url::fromUserInput("/admin/anzy/gbookDel/$id"),
         '#title' => $this->t('Delete'),
         '#attributes' => [
           'data-dialog-type' => ['modal'],
@@ -118,7 +118,7 @@ class AnzyAdminForm extends FormBase {
       ];
       $edit = [
         '#type' => 'link',
-        '#url' => Url::fromUserInput("/admin/anzy/gbookChange/$id/20"),
+        '#url' => Url::fromUserInput("/admin/anzy/gbookChange/$id"),
         '#title' => $this->t('Edit'),
         '#attributes' => ['class' => ['button']],
       ];
