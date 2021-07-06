@@ -74,6 +74,8 @@ class AnzyAdminForm extends FormBase {
     $rows = [];
     foreach ($info as &$value) {
       $renderer = \Drupal::service('renderer');
+      $dest = $this->getDestinationArray();
+      $dest = $dest['destination'];
       $newVal = [];
       /*
        * Store fid, load images and render it images manualy,
@@ -109,7 +111,7 @@ class AnzyAdminForm extends FormBase {
        */
       $delete = [
         '#type' => 'link',
-        '#url' => Url::fromUserInput("/admin/anzy/gbookDel/$id"),
+        '#url' => Url::fromUserInput("/admin/anzy/gbookDel/$id?destination=$dest"),
         '#title' => $this->t('Delete'),
         '#attributes' => [
           'data-dialog-type' => ['modal'],
@@ -118,7 +120,7 @@ class AnzyAdminForm extends FormBase {
       ];
       $edit = [
         '#type' => 'link',
-        '#url' => Url::fromUserInput("/admin/anzy/gbookChange/$id"),
+        '#url' => Url::fromUserInput("/admin/anzy/gbookChange/$id?destination=$dest"),
         '#title' => $this->t('Edit'),
         '#attributes' => ['class' => ['button']],
       ];

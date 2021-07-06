@@ -3,11 +3,9 @@
 namespace Drupal\anzy\Form;
 
 use Drupal\Core\Ajax\HtmlCommand;
-use Drupal\Core\Ajax\RedirectCommand;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Url;
 use Drupal\file\Entity\File;
 
 /**
@@ -115,13 +113,6 @@ class GbookChangeForm extends FormBase {
     $form['submit'] = [
       '#type' => 'submit',
       '#value' => t('Edit'),
-      '#ajax' => [
-        'callback' => '::ajaxForm',
-        'event' => 'click',
-        'progress' => [
-          'type' => 'throbber',
-        ],
-      ],
     ];
     $this->ctid = $cid;
     return $form;
@@ -241,16 +232,6 @@ class GbookChangeForm extends FormBase {
       ])
       ->execute();
     \Drupal::messenger()->addMessage($this->t('Form Edit Successfully'), 'status', TRUE);
-  }
-
-  /**
-   * Function to reload page.
-   */
-  public function ajaxForm(array &$form, FormStateInterface $form_state) {
-    $response = new AjaxResponse();
-    $currentURL = Url::fromRoute('<current>');
-    $response->addCommand(new RedirectCommand($currentURL->toString()));
-    return $response;
   }
 
 }

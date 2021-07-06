@@ -59,6 +59,7 @@ class AnzyController extends ControllerBase {
     $info = array_reverse($info);
     $form = $this->form();
     $rows = [];
+    $dest = $this->getDestinationArray();
     foreach ($info as &$value) {
       $fid = $value['image'];
       $file = File::load($fid);
@@ -73,6 +74,7 @@ class AnzyController extends ControllerBase {
       '#theme' => 'Gbook_template',
       '#items' => $rows,
       '#form' => $form,
+      '#dest' => $dest['destination'],
     ];
   }
 
